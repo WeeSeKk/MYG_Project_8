@@ -20,6 +20,9 @@ using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
 #elif CURVEDUI_STEAMVR_LEGACY || CURVEDUI_STEAMVR_2
 using Valve.VR;
+using Oculus.Interaction;
+using Oculus.Interaction.Input;
+
 #endif 
 
 //optional

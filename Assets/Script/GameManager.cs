@@ -1,7 +1,10 @@
 using UnityEngine;
 
+
 public class GameManager : MonoBehaviour
 {
+    public UnityEngine.XR.Interaction.Toolkit.Interactables.XRBaseInteractable interactable;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -13,4 +16,6 @@ public class GameManager : MonoBehaviour
     {
         
     }
+
+    
 }
