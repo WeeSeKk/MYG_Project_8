@@ -189,9 +189,9 @@ public class IHMManager : MonoBehaviour
         DOTween.Clear();
         if (playlistSetup)
         {
-            for (int i = gridHeight - 1; i >= 0; i--)
+            if (next)
             {
-                if (next)
+                for (int i = gridHeight - 1; i >= 0; i --)
                 {
                     if (gridArray[0, 0] == null && gridArray[0, gridHeight - 1] != null)
                     {
@@ -241,10 +241,14 @@ public class IHMManager : MonoBehaviour
                         gridArray[0, i + 1] = text;
                         gridArray[0, i] = null;
                     }
+
                 }
-                else
+            }
+            else
+            {
+                for (int i = 0; i <= gridHeight - 1; i ++)
                 {
-                    if (gridArray[0, gridHeight - 1] == null && gridArray[0, 0] != null)
+                    if (gridArray[0, 0] != null && gridArray[0, gridHeight - 1] == null)
                     {
                         GameObject bottomText = gridArray[0, 0];
                         Vector3 topPosition = grid.CellToWorld(new Vector3Int(0, gridHeight - 1));
@@ -254,12 +258,12 @@ public class IHMManager : MonoBehaviour
                     }
                     if (i > 0 && gridArray[0, i] != null && gridArray[0, i - 1] == null)
                     {
-                        if (i - 1 == 1)
+                        if (i - 1 == 3)
                         {
                             TMP_Text tMP_Text = gridArray[0, i].GetComponent<TMP_Text>();
                             tMP_Text.text = name;
                         }
-                        if (i < 2 && i > -1)
+                        if (i > 2)
                         {
                             TMP_Text tMP_Text = gridArray[0, i].GetComponent<TMP_Text>();
                             Color startColor = tMP_Text.color;
@@ -285,7 +289,7 @@ public class IHMManager : MonoBehaviour
                                 tMP_Text.color = startColor;
                             }, endColor, duration).SetEase(Ease.OutCirc);
                         }
-
+                        
                         GameObject text = gridArray[0, i];
                         Vector3 worldPosition = grid.CellToWorld(new Vector3Int(0, i - 1));
                         text.transform.DOMove(worldPosition, 2f, false).SetEase(Ease.OutCirc);

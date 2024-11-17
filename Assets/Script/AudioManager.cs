@@ -38,7 +38,7 @@ public class AudioManager : MonoBehaviour
     {
         if (!musicAudioSource.isPlaying && music)
         {
-            PlayMusic("next");
+            PlayMusic("start");
             music = false;
         }
     }
@@ -53,43 +53,78 @@ public class AudioManager : MonoBehaviour
     {
         if (music == "next")
         {
-            Debug.Log("next");
-            if (musicCount == playlist.Count - 1)
+            for (int i = 0; i <= playlist.Count - 1; i++)
             {
-                EventManager.MusicChange(playlist[0].name, true);
-                EventManager.MusicSlider(playlist[1].length);
-                musicAudioSource.clip = playlist[musicCount];
-                musicAudioSource.Play();
-                musicCount = 0;
-            }
-            else
-            {
-                EventManager.MusicChange(playlist[musicCount + 1].name, true);
-                EventManager.MusicSlider(playlist[musicCount].length);
-                musicAudioSource.clip = playlist[musicCount];
-                musicAudioSource.Play();
-                musicCount++;
+                if (musicAudioSource.clip == playlist[i])
+                {
+                    if (i == playlist.Count - 1)
+                    {
+                        int nextIndex = 0;
+                        EventManager.MusicChange(playlist[nextIndex + 1].name, true);
+                        EventManager.MusicSlider(playlist[nextIndex].length);
+                        musicAudioSource.clip = playlist[nextIndex];
+                        musicAudioSource.Play();
+                        break;
+                    }
+                    else
+                    {
+                        int nextIndex = i + 1;
+                        if (nextIndex == playlist.Count - 1)
+                        {
+                            EventManager.MusicChange(playlist[0].name, true);
+                        }
+                        else
+                        {
+                            EventManager.MusicChange(playlist[nextIndex + 1].name, true);
+                        }
+                        EventManager.MusicSlider(playlist[nextIndex].length);
+                        musicAudioSource.clip = playlist[nextIndex];
+                        musicAudioSource.Play();
+                        break;
+                    }
+                }
             }
         }
         else if (music == "previous")
         {
-            Debug.Log("previous");
-            if (musicCount < 1)
+            for (int i = 0; i <= playlist.Count - 1; i++)
             {
-                musicCount = playlist.Count - 1;
-                EventManager.MusicChange(playlist[musicCount].name, false);
-                //EventManager.MusicSlider(playlist[musicCount].length);
-                musicAudioSource.clip = playlist[musicCount];
-                musicAudioSource.Play();
+                if (musicAudioSource.clip == playlist[i])
+                {
+                    if (i == 0)
+                    {
+                        int nextIndex = playlist.Count - 1;
+                        EventManager.MusicChange(playlist[nextIndex - 1].name, false);
+                        EventManager.MusicSlider(playlist[nextIndex].length);
+                        musicAudioSource.clip = playlist[nextIndex];
+                        musicAudioSource.Play();
+                        break;
+                    }
+                    else
+                    {
+                        int nextIndex = i - 1;
+                        if (nextIndex == 0)
+                        {
+                            EventManager.MusicChange(playlist[playlist.Count - 1].name, false);
+                        }
+                        else
+                        {
+                            EventManager.MusicChange(playlist[nextIndex - 1].name, false);
+                        }
+                        EventManager.MusicSlider(playlist[nextIndex].length);
+                        musicAudioSource.clip = playlist[nextIndex];
+                        musicAudioSource.Play();
+                        break;
+                    }
+                }
             }
-            else
-            {
-                EventManager.MusicChange(playlist[musicCount - 1].name, false);
-                //EventManager.MusicSlider(playlist[musicCount].length);
-                musicAudioSource.clip = playlist[musicCount];
-                musicAudioSource.Play();
-            }
-            musicCount--;
+        }
+        else
+        {
+            EventManager.MusicChange(playlist[0].name, true);
+            EventManager.MusicSlider(playlist[0].length);
+            musicAudioSource.clip = playlist[0];
+            musicAudioSource.Play();
         }
     }
 
@@ -109,7 +144,6 @@ public class AudioManager : MonoBehaviour
 
     public void ChangeMusic(Button button)
     {
-        Debug.Log("testtttstststst");
         button.interactable = false;
         if (button.name == "NextButton")
         {

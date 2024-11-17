@@ -9,7 +9,6 @@ public class EventManager : MonoBehaviour
     public static EventManager instance;
     public static event Action<string, bool> musicChange;
     public static event Action<float> musicSlider;
-    public static event Action cancelGrab;
 
     void Awake()
     {
@@ -31,9 +30,5 @@ public class EventManager : MonoBehaviour
     public static void MusicSlider(float musicTime)
     {
         musicSlider?.Invoke(musicTime);
-    }
-    public static void CancelGrab()
-    {
-        cancelGrab?.Invoke();
     }
 }
