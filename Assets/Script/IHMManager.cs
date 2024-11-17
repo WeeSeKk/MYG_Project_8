@@ -16,7 +16,9 @@ public class IHMManager : MonoBehaviour
     [SerializeField] public Grid grid;
     [SerializeField] TMP_Text timerText;
     [SerializeField] TMP_Text musicLengthText;
-    [SerializeField] Slider musicSlider;
+    [SerializeField] Slider musicProgressSlider;
+    [SerializeField] Slider masterVolumeSlider;
+    [SerializeField] Slider musicVolumeSlider;
     public GameObject[,] gridArray;
     float timer;
     float musicLength;
@@ -29,6 +31,7 @@ public class IHMManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        SetSlidersValue();
         carDemoCanvas.enabled = false;
     }
 
@@ -336,7 +339,7 @@ public class IHMManager : MonoBehaviour
     void UpdateMusicSlider(float musicTime)
     {
         musicLength = musicTime;
-        musicSlider.maxValue = musicLength;
+        musicProgressSlider.maxValue = musicLength;
         music = true;
 
         DOTween.To(() => 0f, x => UpdateTimerDisplay(x), musicLength, musicLength).SetEase(Ease.Linear);
@@ -356,7 +359,13 @@ public class IHMManager : MonoBehaviour
         string timeFormatted = string.Format("{0:00}:{1:00}", minutes, seconds);
         timerText.text = timeFormatted;
 
-        musicSlider.value = currentTime;
+        musicProgressSlider.value = currentTime;
+    }
+
+    public void SetSlidersValue()
+    {
+        AudioManager.instance.MusicSliderValue(musicVolumeSlider.value);
+        AudioManager.instance.MasterSliderValue(masterVolumeSlider.value);
     }
 
     public void test()

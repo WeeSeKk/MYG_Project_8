@@ -590,9 +590,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DoNotTesselate: 0
-  savedPos: {x: -16.315498, y: 4.5316668, z: 0}
+  savedPos: {x: -15.115499, y: 3.711667, z: 0}
   savedUp: {x: 0, y: -1, z: 0}
-  savedRectSize: {x: 10, y: 5}
+  savedRectSize: {x: 90, y: 5}
   savedColor: {r: 1, g: 1, b: 1, a: 1}
   savedTextUV0: {x: 0, y: 0, z: 0, w: 0}
   savedFill: 1
@@ -683,7 +683,7 @@ GameObject:
   - component: {fileID: 79086586}
   - component: {fileID: 79086585}
   m_Layer: 5
-  m_Name: Image
+  m_Name: EffectVolume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1653,7 +1653,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DoNotTesselate: 0
-  savedPos: {x: -16.165499, y: 4.5316668, z: 0}
+  savedPos: {x: -13.765499, y: 3.711667, z: 0}
   savedUp: {x: 0, y: -1, z: 0}
   savedRectSize: {x: 20, y: 10}
   savedColor: {r: 1, g: 1, b: 1, a: 1}
@@ -1987,7 +1987,7 @@ GameObject:
   - component: {fileID: 215166710}
   - component: {fileID: 215166709}
   m_Layer: 5
-  m_Name: Image (3)
+  m_Name: MasterVolume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2277,9 +2277,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DoNotTesselate: 0
-  savedPos: {x: -16.315498, y: 3.5316668, z: 0}
+  savedPos: {x: -15.83557, y: 2.711667, z: 0}
   savedUp: {x: 0, y: -1, z: 0}
-  savedRectSize: {x: 10, y: 5}
+  savedRectSize: {x: 41.9952, y: 5}
   savedColor: {r: 1, g: 1, b: 1, a: 1}
   savedTextUV0: {x: 0, y: 0, z: 0, w: 0}
   savedFill: 1
@@ -2697,7 +2697,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1354332446}
   m_FillRect: {fileID: 767605136}
   m_HandleRect: {fileID: 1354332444}
@@ -2882,7 +2882,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DoNotTesselate: 0
-  savedPos: {x: -16.165499, y: 3.5316668, z: 0}
+  savedPos: {x: -15.205643, y: 2.711667, z: 0}
   savedUp: {x: 0, y: -1, z: 0}
   savedRectSize: {x: 20, y: 10}
   savedColor: {r: 1, g: 1, b: 1, a: 1}
@@ -5403,7 +5403,7 @@ GameObject:
   - component: {fileID: 663462416}
   - component: {fileID: 663462417}
   m_Layer: 5
-  m_Name: Slider (2)
+  m_Name: EffectVolumeSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5475,10 +5475,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 205908851}
   m_HandleRect: {fileID: 39520905}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 0.0001
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -5621,7 +5621,7 @@ GameObject:
   - component: {fileID: 715079931}
   - component: {fileID: 715079932}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: MasterVolumeSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5693,13 +5693,25 @@ MonoBehaviour:
   m_FillRect: {fileID: 69491164}
   m_HandleRect: {fileID: 204172997}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 954188467}
+        m_TargetAssemblyTypeName: IHMManager, Assembly-CSharp
+        m_MethodName: SetSlidersValue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &715996803
 GameObject:
   m_ObjectHideFlags: 0
@@ -7497,7 +7509,9 @@ MonoBehaviour:
   grid: {fileID: 2048892364}
   timerText: {fileID: 1710180718}
   musicLengthText: {fileID: 1083573077}
-  musicSlider: {fileID: 301624328}
+  musicProgressSlider: {fileID: 301624328}
+  masterVolumeSlider: {fileID: 715079932}
+  musicVolumeSlider: {fileID: 1623595303}
 --- !u!4 &954188468
 Transform:
   m_ObjectHideFlags: 0
@@ -9185,6 +9199,14 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 85cb02bfd0b47cd44a3de8a6a159222f, type: 3}
   - {fileID: 8300000, guid: 0663fc8aacb863447a5ab40cb15e8c94, type: 3}
   - {fileID: 8300000, guid: de91a5f4113d1b846b208fe260d1685a, type: 3}
+  - {fileID: 8300000, guid: f1f7ef3f6e1c16b4c81425ec28ae2189, type: 3}
+  - {fileID: 8300000, guid: a455746fb49ad7c44ada23725ccc32f4, type: 3}
+  - {fileID: 8300000, guid: 005f6996bd4c10f4c8d66b998e66b473, type: 3}
+  - {fileID: 8300000, guid: add7b8f1cd963f44eb88e407b46da89e, type: 3}
+  - {fileID: 8300000, guid: 73be8274f1b407446b97a2bad3489fb4, type: 3}
+  - {fileID: 8300000, guid: 0c43c55b64c7bb9449ad97afe06dc594, type: 3}
+  - {fileID: 8300000, guid: a7886c366da7c10428637d3d261ae8ab, type: 3}
+  - {fileID: 8300000, guid: 876cb55b542bf114f937b2c80b358593, type: 3}
   audioMixer: {fileID: 24100000, guid: 9ccdd40a5ef83bc45822d15badc409fc, type: 2}
   musicAudioSource: {fileID: 1239437293}
   soundAudioSource: {fileID: 0}
@@ -9590,7 +9612,7 @@ GameObject:
   - component: {fileID: 1249351129}
   - component: {fileID: 1249351128}
   m_Layer: 5
-  m_Name: Image (2)
+  m_Name: MusicVolume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12932,7 +12954,7 @@ GameObject:
   - component: {fileID: 1623595302}
   - component: {fileID: 1623595303}
   m_Layer: 5
-  m_Name: Slider (1)
+  m_Name: MusicVolumeSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13004,13 +13026,25 @@ MonoBehaviour:
   m_FillRect: {fileID: 239377393}
   m_HandleRect: {fileID: 327334141}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 0.4
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 954188467}
+        m_TargetAssemblyTypeName: IHMManager, Assembly-CSharp
+        m_MethodName: SetSlidersValue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1658579549
 GameObject:
   m_ObjectHideFlags: 0

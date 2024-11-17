@@ -12,7 +12,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioMixer audioMixer;
     [SerializeField] AudioSource musicAudioSource;
     [SerializeField] AudioSource soundAudioSource;
-    int musicCount = 0;
+    const string MUSIC_VOLUME = "MusicVolume";
+    const string MASTER_VOLUME = "MasterVolume";
     bool music;
 
     void Awake()
@@ -154,5 +155,15 @@ public class AudioManager : MonoBehaviour
             PlayMusic("previous");
         }
         button.interactable = true;
+    }
+
+    public void MasterSliderValue(float value)
+    {
+        audioMixer.SetFloat(MASTER_VOLUME, Mathf.Log10(value) * 20);
+    }
+
+    public void MusicSliderValue(float value)
+    {
+        audioMixer.SetFloat(MUSIC_VOLUME, Mathf.Log10(value) * 20);
     }
 }
