@@ -3,7 +3,137 @@ guid: 5073414d2f0bfe44fbe0b1dae6464b27
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Chrome
+    second: {fileID: 2100000, guid: 3d3f877d746f7a14bb83a1f36009b354, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Chrome_2
+    second: {fileID: 2100000, guid: 19f0899b637d3d448a89c990760e2599, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: VRayMtl1
+    second: {fileID: 2100000, guid: bb149e95cfa134c4faa0e9a8f6c2a13f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: chromedvorn
+    second: {fileID: 2100000, guid: 765067351ae71324fa19094d2ee76df9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: forMayaAO_Alpha
+    second: {fileID: 2100000, guid: 1c52d886ee928ca4cb8bb018292947b5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: forMayaAO_Grill2
+    second: {fileID: 2100000, guid: 7a43b220845938a4da151a2f02aeef5c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: forMayaAO_blinn10
+    second: {fileID: 2100000, guid: 66c785bd84e04ec438c8b3343fab905a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: forMayaAO_blinn11
+    second: {fileID: 2100000, guid: 541867d021c160c4ea0267226e195f03, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: forMayaAO_blinn6
+    second: {fileID: 2100000, guid: 5befda738ba32034b80cc98dca72a67c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: forMayaAO_blinn7
+    second: {fileID: 2100000, guid: 26ec09185bad504429832368076ecf63, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: forMayaAO_blinn9
+    second: {fileID: 2100000, guid: 4a13bd293b6e38748be8499b4d4032f0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: forMayaAO_frontLights
+    second: {fileID: 2100000, guid: 05ac6b0636c64074e8708e1e8cb235eb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: forMayaAO_lambert13
+    second: {fileID: 2100000, guid: a85cc43475135d942bdaa6fa423a9b63, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: forMayaAO_lambert15
+    second: {fileID: 2100000, guid: 58f9aa6c06a605949ae865556329cc2a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: forMayaAO_lambert16
+    second: {fileID: 2100000, guid: 15ee8f3554cf56a43a177978a4ca890d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: forMayaAO_lambert17
+    second: {fileID: 2100000, guid: 61486059d31f4364aaf88ea70e4a7e61, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: forMayaAO_mi_car_paint_phen2
+    second: {fileID: 2100000, guid: 673710b2cd575db4e915814399051df5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: forMayaAO_number
+    second: {fileID: 2100000, guid: 39bbcb21aa53c984096b62740999346f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: forMayaAO_phong2
+    second: {fileID: 2100000, guid: 82cfed972751b404491d5bb4f1dc2a21, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: forMayaAO_phong5
+    second: {fileID: 2100000, guid: d32cd36ae1276714c846d5fce7aedd9f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: forMayaAO_rear_lights
+    second: {fileID: 2100000, guid: 4d816c2d45d201d44ae14fbe4b745a2f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lamp1
+    second: {fileID: 2100000, guid: 9a83ed4aa92987b419bcaf1802c35317, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: logo222
+    second: {fileID: 2100000, guid: 8c2fdd9223c5187409aa0ae0cdcaff03, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mafina2hdri_lambert9
+    second: {fileID: 2100000, guid: fa6aae3e29566624eac58b3b9f970f92, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: miror
+    second: {fileID: 2100000, guid: 8353a1566dbb00e448405a66a7a71ac4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rezinDvorn
+    second: {fileID: 2100000, guid: 0eed60a1b9e57f744981174f1ec4588a, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

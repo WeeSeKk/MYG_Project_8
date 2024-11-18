@@ -3,7 +3,72 @@ guid: d14f99f5c4155c440bd4afb35eef20ea
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: body
+    second: {fileID: 2100000, guid: 600b7a03c1857eb4099f97dbd7d5dd41, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: chest
+    second: {fileID: 2100000, guid: 3b9673316ee90aa4b800d8b4680f3cb6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: chrome
+    second: {fileID: 2100000, guid: eb343cb3cd348cb4e9a06d42b8981f37, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: glass
+    second: {fileID: 2100000, guid: 82dfda4cb83dcad44957e89ffee2e207, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: interior
+    second: {fileID: 2100000, guid: d5297276ba3d9304db95a5fe1db6e5c5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lantern_wall_base_1
+    second: {fileID: 2100000, guid: 74548fe57a9ae4e4abb5cb9ca65715af, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lantern_wall_base_2
+    second: {fileID: 2100000, guid: 9a5a6c83bc82ccd41ad69d7646747b48, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lantern_wall_glass_1
+    second: {fileID: 2100000, guid: 8099e107a192c5c4a96d83f6267c8445, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lights
+    second: {fileID: 2100000, guid: f3081d0b54602e64d9a42a93d072f52c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: number
+    second: {fileID: 2100000, guid: 80017d4b13d3f0f4d89cd30458ab4095, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rubber
+    second: {fileID: 2100000, guid: c22ec69c50e6b1f43985fd5d785b37cf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shadow
+    second: {fileID: 2100000, guid: 1568660673e5b0c49b0a4f662c1d6f2d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wheels
+    second: {fileID: 2100000, guid: c27d9265efb197c489bb43afd955063d, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

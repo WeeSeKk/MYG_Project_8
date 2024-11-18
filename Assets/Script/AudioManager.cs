@@ -31,7 +31,8 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-
+        PlayMusic("start");
+        music = true;
     }
 
     // Update is called once per frame
@@ -39,15 +40,13 @@ public class AudioManager : MonoBehaviour
     {
         if (!musicAudioSource.isPlaying && music)
         {
-            PlayMusic("start");
-            music = false;
+            PlayMusic("next");
         }
     }
 
     void OnEnable()
     {
-        music = true;
-        //StartCoroutine(PlayMusic());
+        
     }
 
     void PlayMusic(string music)

@@ -19,6 +19,8 @@ public class IHMManager : MonoBehaviour
     [SerializeField] Slider musicProgressSlider;
     [SerializeField] Slider masterVolumeSlider;
     [SerializeField] Slider musicVolumeSlider;
+    [SerializeField] CustomRaycastCurvedUI customRaycastCurvedUI;
+    public bool mainMenu = true;
     public GameObject[,] gridArray;
     float timer;
     float musicLength;
@@ -28,14 +30,12 @@ public class IHMManager : MonoBehaviour
     int gridWidth = 1;
     int gridHeight = 5;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         SetSlidersValue();
         carDemoCanvas.enabled = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (timer < 0 && music)
@@ -96,7 +96,7 @@ public class IHMManager : MonoBehaviour
         }
         else
         {
-            Vector3 endValue = new Vector3(15, image.transform.localPosition.y, image.transform.localPosition.z);
+            Vector3 endValue = new Vector3(19, image.transform.localPosition.y, image.transform.localPosition.z);
             DOTween.To(() => startValue, x =>
             {
                 image.transform.localPosition = x;
@@ -111,12 +111,13 @@ public class IHMManager : MonoBehaviour
 
         if (gameObject.transform.localPosition.x == 0)
         {
-            Vector3 endValue = new Vector3(-20, gameObject.transform.localPosition.y, gameObject.transform.localPosition.z);
+            Vector3 endValue = new Vector3(-25, gameObject.transform.localPosition.y, gameObject.transform.localPosition.z);
             DOTween.To(() => startValue, x =>
             {
                 gameObject.transform.localPosition = x;
 
             }, endValue, 2f).SetEase(Ease.OutCirc);
+            mainMenu = false;
         }
         else
         {
@@ -126,64 +127,7 @@ public class IHMManager : MonoBehaviour
                 gameObject.transform.localPosition = x;
 
             }, endValue, 2f).SetEase(Ease.OutCirc);
-        }
-    }
-
-    public void UpdatePlaylist(string name)
-    {
-        if (playlistSetup)
-        {
-            Vector3 bottomPosition = new Vector3(0, -36, 0);
-
-            for (int i = 0; i < musicNames.Count; i++)
-            {
-                if (musicNames[i].gameObject.transform.localPosition.y == -4)
-                {
-                    musicNames[i].gameObject.transform.localPosition = bottomPosition;
-                }
-
-                Vector3 startPosition = musicNames[i].gameObject.transform.localPosition;
-                Vector3 endPosition = new Vector3(0, musicNames[i].gameObject.transform.localPosition.y + 8, 0);
-
-                if (startPosition.y == -36)
-                {
-                    musicNames[i].text = name;
-                }
-
-                musicNames[i].gameObject.transform.DOLocalMoveY(musicNames[i].gameObject.transform.localPosition.y + 8, 2f).SetEase(Ease.OutCirc);
-
-                if (endPosition.y == -28 || endPosition.y == -20)
-                {
-                    Color startColor = musicNames[i].color;
-                    Color endColor = new Color(1, 1, 1, musicNames[i].color.a + 0.5f);
-                    float duration = 2f;
-                    int index = i;
-
-                    DOTween.To(() => startColor, x =>
-                    {
-                        startColor = x;
-                        musicNames[index].color = startColor;
-                    }, endColor, duration).SetEase(Ease.OutCirc);
-                }
-                else
-                {
-                    Color startColor = musicNames[i].color;
-                    Color endColor = new Color(1, 1, 1, musicNames[i].color.a - 0.5f);
-                    float duration = 2f;
-                    int index = i;
-
-                    DOTween.To(() => startColor, x =>
-                    {
-                        startColor = x;
-                        musicNames[index].color = startColor;
-                    }, endColor, duration).SetEase(Ease.OutCirc);
-                }
-            }
-        }
-        else
-        {
-
-            playlistSetup = true;
+            mainMenu = true;
         }
     }
 
@@ -366,6 +310,27 @@ public class IHMManager : MonoBehaviour
     {
         AudioManager.instance.MusicSliderValue(musicVolumeSlider.value);
         AudioManager.instance.MasterSliderValue(masterVolumeSlider.value);
+    }
+
+    public void OnCarButtonClick()
+    {
+        //do anim button
+    }
+
+    public void OnCarColorButtonClick(Button button)
+    {
+        Debug.Log("OnCarColorButtonClick");
+        GameObject parentButton = button.gameObject.transform.parent.parent.gameObject;
+        TMP_Text[] tmpTexts = parentButton.GetComponentsInChildren<TMP_Text>();
+
+        foreach (TMP_Text tMP_Text in tmpTexts)
+        {
+            if (tMP_Text.name == "CarNameText")
+            {
+                GameManager.instance.OnCarColorChange(tMP_Text.text, button.GetComponent<Image>().color);
+                break;
+            }
+        }
     }
 
     public void test()

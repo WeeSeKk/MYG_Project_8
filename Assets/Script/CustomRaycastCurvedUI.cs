@@ -5,6 +5,7 @@ using UnityEngine.XR;
 
 public class CustomRaycastCurvedUI : MonoBehaviour
 {
+    [SerializeField] IHMManager iHMManager;
     [SerializeField] InputActionReference trigger;
     [SerializeField] InputActionReference grab;
     [SerializeField] GameObject ui;
@@ -25,7 +26,7 @@ public class CustomRaycastCurvedUI : MonoBehaviour
         {
             Debug.Log("Hit : " + hit.collider.name);
 
-            if (Physics.Raycast(ray, out hit) && grab.action.inProgress)
+            if (Physics.Raycast(ray, out hit) && grab.action.inProgress && !iHMManager.mainMenu)
             {
                 Vector3 localPosition = hit.transform.InverseTransformPoint(hit.point);
 
@@ -36,9 +37,11 @@ public class CustomRaycastCurvedUI : MonoBehaviour
                 }
 
                 newPos = localPosition - originPos;
-                ui.transform.localPosition = new Vector3(newPos.x, 0, 0);
+                if (newPos.x < 20 && newPos.x > - 22) {
+                    ui.transform.localPosition = new Vector3(newPos.x, 0, 0);
+                }
 
-                Debug.Log("Position : " + localPosition);
+                Debug.Log("Position : " + newPos.x);
             }
             if (!grab.action.inProgress)
             {
@@ -46,5 +49,4 @@ public class CustomRaycastCurvedUI : MonoBehaviour
             }
         }
     }
-
 }
