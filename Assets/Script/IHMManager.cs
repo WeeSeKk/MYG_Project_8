@@ -20,7 +20,12 @@ public class IHMManager : MonoBehaviour
     [SerializeField] Slider masterVolumeSlider;
     [SerializeField] Slider musicVolumeSlider;
     [SerializeField] CustomRaycastCurvedUI customRaycastCurvedUI;
+    [SerializeField] Canvas curvedCanvas;
+    [SerializeField] Canvas secondCurvedCanvas;
+    [SerializeField] GameObject newUIParent;
+    [SerializeField] GameObject oldUIParent;
     public bool mainMenu = true;
+    public bool selected;
     public GameObject[,] gridArray;
     float timer;
     float musicLength;
@@ -33,7 +38,7 @@ public class IHMManager : MonoBehaviour
     void Start()
     {
         SetSlidersValue();
-        carDemoCanvas.enabled = false;
+        //carDemoCanvas.enabled = false;
     }
 
     void Update()
@@ -312,15 +317,34 @@ public class IHMManager : MonoBehaviour
         AudioManager.instance.MasterSliderValue(masterVolumeSlider.value);
     }
 
-    public void OnCarButtonClick()
+    public void OnCarButtonClick(Button button)
     {
-        //do anim button
+        GameObject buttons = button.transform.GetChild(2).gameObject;
+
+        if (!selected)
+        {
+            button.transform.SetParent(newUIParent.transform);
+            secondCurvedCanvas.transform.DOLocalMoveZ(2.5f, 0.5f).SetEase(Ease.OutBack).OnComplete(() => {
+                selected = true;
+                buttons.SetActive(true);
+            });
+        }
+        else if (selected)
+        {
+            buttons.SetActive(false);
+            secondCurvedCanvas.transform.DOLocalMoveZ(curvedCanvas.transform.localPosition.z, 0.5f).SetEase(Ease.InBack).OnComplete(() => {
+                button.transform.SetParent(oldUIParent.transform);
+                secondCurvedCanvas.transform.localPosition = new Vector3(secondCurvedCanvas.transform.localPosition.x,  secondCurvedCanvas.transform.localPosition.y,  secondCurvedCanvas.transform.localPosition.z + 0.01f);
+                selected = false;
+            });
+        }
+        
     }
 
     public void OnCarColorButtonClick(Button button)
     {
         Debug.Log("OnCarColorButtonClick");
-        GameObject parentButton = button.gameObject.transform.parent.parent.gameObject;
+        GameObject parentButton = button.gameObject.transform.parent.parent.parent.gameObject;
         TMP_Text[] tmpTexts = parentButton.GetComponentsInChildren<TMP_Text>();
 
         foreach (TMP_Text tMP_Text in tmpTexts)
@@ -331,6 +355,13 @@ public class IHMManager : MonoBehaviour
                 break;
             }
         }
+    }
+
+    public void OnCarSelectedButtonClick(Button button)
+    {
+        Button parentButton = button.transform.parent.parent.GetComponent<Button>();
+        OnCarButtonClick(parentButton);
+        GameManager.instance.OnCarSelected();
     }
 
     public void test()

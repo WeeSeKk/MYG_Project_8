@@ -5,8 +5,10 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    [SerializeField] List<GameObject> carList;
     [SerializeField] List<GameObject> previewCarList;
     [SerializeField] List<Material> carMaterials;
+    [SerializeField] GameObject carSpawnPoint;
     
     void Awake()
     {
@@ -34,8 +36,8 @@ public class GameManager : MonoBehaviour
 
     public void OnCarColorChange(string carName, Color newColor)
     {
-        Debug.Log("Color Change");
-        for (int i = 0; i < previewCarList.Count - 1; i ++)
+        Debug.Log("Color Change to : " + newColor);
+        for (int i = 0; i < previewCarList.Count; i ++)
         {
             if (previewCarList[i].name == carName)
             {
@@ -43,5 +45,10 @@ public class GameManager : MonoBehaviour
                 break;
             }
         }
+    }
+
+    public void OnCarSelected()
+    {
+        Instantiate(previewCarList[0], carSpawnPoint.transform.position, Quaternion.identity);
     }
 }
