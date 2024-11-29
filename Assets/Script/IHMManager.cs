@@ -24,6 +24,9 @@ public class IHMManager : MonoBehaviour
     [SerializeField] GameObject oldUIParent;
     [SerializeField] GameObject wifiImage;
     [SerializeField] List<Sprite> wifiSprites;
+    [SerializeField] GameObject carSelectButtonPrefab;
+    [SerializeField] GameObject cruvedCanvasBG;
+    GameObject selectedButton;
     public bool mainMenu = true;
     public bool selected;
     public GameObject[,] gridArray;
@@ -319,6 +322,7 @@ public class IHMManager : MonoBehaviour
 
     public void OnCarButtonClick(Button button)
     {
+        /*
         GameObject buttons = button.transform.GetChild(3).gameObject;
 
         if (!selected)
@@ -343,7 +347,32 @@ public class IHMManager : MonoBehaviour
                 Debug.Log(panel.name);
             });
         }
-
+        */
+        
+        if (!selected)
+        {
+            selectedButton = button.gameObject;
+            button.gameObject.SetActive(false);
+            GameObject newButton = Instantiate(carSelectButtonPrefab, button.transform.position, new Quaternion(0,0,0,0), cruvedCanvasBG.transform);
+            ButtonStateController buttonStateController = newButton.GetComponent<ButtonStateController>();
+            buttonStateController.SetupButton(button.gameObject);
+            secondCurvedCanvas.transform.DOLocalMoveZ(2.5f, 0.5f).SetEase(Ease.OutBack).OnComplete(() =>
+            {
+                selected = true;
+            });
+        }
+        else if (selected)
+        {
+            secondCurvedCanvas.transform.DOLocalMoveZ(curvedCanvas.transform.localPosition.z, 0.5f).SetEase(Ease.InBack).OnComplete(() =>
+            {
+                secondCurvedCanvas.transform.localPosition = new Vector3(secondCurvedCanvas.transform.localPosition.x, secondCurvedCanvas.transform.localPosition.y, secondCurvedCanvas.transform.localPosition.z + 0.01f);
+                selected = false;
+                Button panel = button.transform.GetChild(5).GetComponent<Button>();
+                OnCarInfoButtonClick(panel);
+                selectedButton.SetActive(true);
+                Destroy(button.gameObject);
+            });
+        }
     }
 
     public void OnCarColorButtonClick(Button button)
