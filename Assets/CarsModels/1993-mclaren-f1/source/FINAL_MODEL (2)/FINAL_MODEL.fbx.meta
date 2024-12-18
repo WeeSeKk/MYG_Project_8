@@ -3,7 +3,122 @@ guid: 0ad47b0d979f4ae449fd4d8a256f1f8e
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BREAKS
+    second: {fileID: 2100000, guid: b508d279602eb5546a101ad8fe066e01, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BREMBO
+    second: {fileID: 2100000, guid: 3f1e99244c1383645bb0a4c99d517657, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ORANGE_GLASS
+    second: {fileID: 2100000, guid: 181ffa72d3702d047b59887ed2e7f88f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RED_GLASS
+    second: {fileID: 2100000, guid: 0baed33fa2357194a8f08f847738156b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: full_CARBON_6
+    second: {fileID: 2100000, guid: 362c457fedb681448aa1ba52dc7a26ba, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: full_CHASSIS_4
+    second: {fileID: 2100000, guid: 61e75046ea9c0f24f8abb118e26b9e42, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: full_DET_EXT_3
+    second: {fileID: 2100000, guid: e4f7897fcb610d74a8d2e63e081171a5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: full_SM_Engine_0000.001SG3
+    second: {fileID: 2100000, guid: 9587e042dafabcc4a99f6f18845cccec, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: full_SM_Engine_0000.001SG5
+    second: {fileID: 2100000, guid: 8a8374c08cfc94b4a8b5bc19876f1fef, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: full_SM_Engine_0000.001SG7
+    second: {fileID: 2100000, guid: ed397d92df5a39d41be46aadfd01553c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: full_SM_FrontKit_0000.001SG7
+    second: {fileID: 2100000, guid: ae2b19a6677b6424aba36e305e722ba2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: full_SM_FrontKit_0000.001SG9
+    second: {fileID: 2100000, guid: 985d9e09d161b1d48a4f9105cf9a137d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: full_SM_Interior_0000.001SG3
+    second: {fileID: 2100000, guid: 95caccd40c3b5124e87f131c558a0719, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: full_SM_Interior_0000.001SG5
+    second: {fileID: 2100000, guid: a3de0c7cdafa7ac4caf83656c7f61dd5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: full_SM_Interior_0000.001SG7
+    second: {fileID: 2100000, guid: efd5b67a3aee2aa47a7e11e5adc49672, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: full_SM_Interior_0000.001SG9
+    second: {fileID: 2100000, guid: 5d63abdc54478e441a8c59a315ba156d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: full_SM_RearKit_0000.001SG1
+    second: {fileID: 2100000, guid: 8c4c4fe584eec194b862e0a3ae497f61, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: full_SM_RearKit_0000.001SG3
+    second: {fileID: 2100000, guid: 37bbb9063907dbf43a0c38b84a0f6bdc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: full_SM_RearKit_0000.001SG7
+    second: {fileID: 2100000, guid: c448a11756de439479f81bf903b3c55e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: full_SM_RearKit_0000.001SG9
+    second: {fileID: 2100000, guid: dc0865703aa3c1048a72772470f5ffd4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: full_phong1SG1
+    second: {fileID: 2100000, guid: 585074d1cadcebd4c8286df9f51c220f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: phong1
+    second: {fileID: 2100000, guid: 1f230bda4ff20d045906a0ac877777a8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: phong2
+    second: {fileID: 2100000, guid: ae7629064dda2264494010ac88890dec, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.XR;
+using UnityEngine.Events;
 
 public class CustomRaycastCurvedUI : MonoBehaviour
 {
@@ -9,12 +10,22 @@ public class CustomRaycastCurvedUI : MonoBehaviour
     [SerializeField] InputActionReference trigger;
     [SerializeField] InputActionReference grab;
     [SerializeField] GameObject ui;
-    [SerializeField] GameObject carTest;
+    GameObject selectedCar;
     public LayerMask uiLayerMask;
     Vector3 originPos;
     Vector3 newPos;
     float startingRotation = 0;
     bool orinPosSet = false;
+
+    void Start()
+    {
+        EventManager.changeSelectedCar += ChangeSelectedCar;
+    }
+
+    void ChangeSelectedCar(GameObject car)
+    {
+        selectedCar = car;
+    }
 
     void Update()
     {
@@ -48,14 +59,14 @@ public class CustomRaycastCurvedUI : MonoBehaviour
                 if (!orinPosSet)
                 {
                     originPos = localPosition;
-                    startingRotation = carTest.transform.eulerAngles.y;
+                    startingRotation = selectedCar.transform.eulerAngles.y;
                     orinPosSet = true;
                 }
 
                 float rotationDelta = (localPosition.x - originPos.x) * 10;
-                Vector3 newRotation = carTest.transform.eulerAngles;
+                Vector3 newRotation = selectedCar.transform.eulerAngles;
                 newRotation.y = startingRotation + rotationDelta; 
-                carTest.transform.eulerAngles = newRotation;
+                selectedCar.transform.eulerAngles = newRotation;
             }
             if (!grab.action.inProgress)
             {

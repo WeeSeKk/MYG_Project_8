@@ -4,14 +4,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using Newtonsoft.Json.Linq;
-using Oculus.Platform;
+using GameManagerNamespace;
 
 
 public class APIManager : MonoBehaviour
 {
-    public List<CarSO> scriptableObjects;
-
     async void Start()
+    {
+        string urlGet = "http://localhost/MYG8/index.php?carsspecs=get";
+        await GetRequestAsync(urlGet);
+    }
+
+    public async void TryConnection()
     {
         string urlGet = "http://localhost/MYG8/index.php?carsspecs=get";
         await GetRequestAsync(urlGet);
@@ -36,12 +40,15 @@ public class APIManager : MonoBehaviour
                 case UnityWebRequest.Result.ConnectionError:
                 case UnityWebRequest.Result.DataProcessingError:
                     Debug.LogError(pages[page] + ": Error: " + webRequest.error);
+                    EventManager.ConnectionStatus("failed");
                     return; 
                 case UnityWebRequest.Result.ProtocolError:
                     Debug.LogError(pages[page] + ": HTTP Error: " + webRequest.error);
+                    EventManager.ConnectionStatus("failed");
                     return; 
                 case UnityWebRequest.Result.Success:
                     Debug.Log(pages[page] + ":\nReceived: " + webRequest.downloadHandler.text);
+                    EventManager.ConnectionStatus("success");
                     break;
             }
 
@@ -71,7 +78,7 @@ public class APIManager : MonoBehaviour
         carSO.horsePower = carSpecs.horsePower;
         carSO.modelWeight = carSpecs.modelWeight;
 
-        scriptableObjects.Add(carSO);
+        GameManager.instance.scriptableObjects.Add(carSO);
     }
 }
 public class CarSpecs

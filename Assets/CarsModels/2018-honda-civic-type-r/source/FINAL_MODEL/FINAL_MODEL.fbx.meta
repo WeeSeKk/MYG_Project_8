@@ -3,7 +3,107 @@ guid: 8d584ae2c672764429dbbcef025d4da9
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Honda_CivicTypeRElite_2017BadgeA_Material
+    second: {fileID: 2100000, guid: 4e909cedab69f3d4fbe6e26d26fa2f81, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Honda_CivicTypeRElite_2017Base_Material
+    second: {fileID: 2100000, guid: b7108a0acfe9d814380189f86bc5a5f8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Honda_CivicTypeRElite_2017Carbon1M_Material
+    second: {fileID: 2100000, guid: b68bd851b9061a84bb2a850f32c5cb49, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Honda_CivicTypeRElite_2017Coloured_Material
+    second: {fileID: 2100000, guid: 5068933fd98e44447b34e5493ceb53b4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Honda_CivicTypeRElite_2017EngineA_Material
+    second: {fileID: 2100000, guid: 6bf8d624fc7fe4a478c4942418a380d4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Honda_CivicTypeRElite_2017Grille1A_Material
+    second: {fileID: 2100000, guid: d03fe945fcf4b5342911d04fce71845f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Honda_CivicTypeRElite_2017Grille2A_Material
+    second: {fileID: 2100000, guid: c77b5ef11d8a67242a46abb12ff529da, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Honda_CivicTypeRElite_2017Grille3A_Material
+    second: {fileID: 2100000, guid: c07e1ef307411b44d89e9b1c53c746c8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Honda_CivicTypeRElite_2017Grille4A_Material
+    second: {fileID: 2100000, guid: e6943975e31999a4fb163ee50842d7d2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Honda_CivicTypeRElite_2017InteriorA_Material
+    second: {fileID: 2100000, guid: a5be55fd929692c49bd8b1f6d07db8eb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Honda_CivicTypeRElite_2017InteriorTillingA_Material
+    second: {fileID: 2100000, guid: f40d3f7893280de42b03b56f8065394c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Honda_CivicTypeRElite_2017LightA_Material
+    second: {fileID: 2100000, guid: 5f5b1ceaa21396f49ac694fd73f6f46a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Honda_CivicTypeRElite_2017ManufacturerPlateA_Material
+    second: {fileID: 2100000, guid: c706099c0d113924b92a7a71bbecdff7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Honda_CivicTypeRElite_2017Paint_Material
+    second: {fileID: 2100000, guid: d98078797dfb76248befa47d5d145052, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Honda_CivicTypeRElite_2017Window_Material
+    second: {fileID: 2100000, guid: cada70c668932c947bc0e7dd0021467f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Honda_CivicTypeRElite_2017_CallipersCalliperGloss_Material
+    second: {fileID: 2100000, guid: 220eff54ae959554bb48497b3debf59e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Honda_CivicTypeRElite_2017_Wheel1A_3D_3DWheel1A_Material
+    second: {fileID: 2100000, guid: cd6d8825329600649ab139dbc600261f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MIRROR
+    second: {fileID: 2100000, guid: 526df9933eba1d44b9060b9f09c065b0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RED_GLASS
+    second: {fileID: 2100000, guid: eb9a65b1f191f2942b2901f41b9426d0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RED_PAINT
+    second: {fileID: 2100000, guid: c9189e8d9a6ac974d961bfd4df92261c, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

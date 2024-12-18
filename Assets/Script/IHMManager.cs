@@ -5,10 +5,16 @@ using UnityEngine.UI;
 using TMPro;
 using System.Collections.Generic;
 using System.Collections;
+using UnityEngine.InputSystem;
+using GameManagerNamespace;
 
 public class IHMManager : MonoBehaviour
 {
-    [SerializeField] Canvas carDemoCanvas;
+    [SerializeField] GameObject canvasGameobject;
+    [SerializeField] GameObject backUI;
+    [SerializeField] GameObject connectionCanvas;
+    [SerializeField] GameObject mainCamera;
+    [SerializeField] InputActionReference canvasButton;
     [SerializeField] CurvedUISettings curvedUISettings;
     [SerializeField] Button returnButton;
     [SerializeField] List<TMP_Text> musicNames;
@@ -20,8 +26,6 @@ public class IHMManager : MonoBehaviour
     [SerializeField] Slider musicVolumeSlider;
     [SerializeField] Canvas curvedCanvas;
     [SerializeField] Canvas secondCurvedCanvas;
-    [SerializeField] GameObject newUIParent;
-    [SerializeField] GameObject oldUIParent;
     [SerializeField] GameObject wifiImage;
     [SerializeField] List<Sprite> wifiSprites;
     [SerializeField] GameObject carSelectButtonPrefab;
@@ -29,11 +33,12 @@ public class IHMManager : MonoBehaviour
     GameObject selectedButton;
     public bool mainMenu = true;
     public bool selected;
+    bool isConnected;
     public GameObject[,] gridArray;
     float timer;
     float musicLength;
     bool music;
-    int uiPosition = 35;
+    int uiPosition = 45;
     bool playlistSetup;
     int gridWidth = 1;
     int gridHeight = 5;
@@ -41,7 +46,7 @@ public class IHMManager : MonoBehaviour
     void Start()
     {
         SetSlidersValue();
-        StartCoroutine(InternetConnectionAnim(true));
+        EventManager.connectionStatus += ConnectionCanvas;
     }
 
     void Update()
@@ -58,6 +63,35 @@ public class IHMManager : MonoBehaviour
         {
             music = false;
         }
+
+        if (canvasButton.action.triggered && isConnected) {
+            ShowHideCanvas();
+        }
+    }
+
+    void ConnectionCanvas(string connection)
+    {
+        if (connection == "failed") {
+            connectionCanvas.SetActive(true);
+            isConnected = false;
+        }
+        else {
+            if (connectionCanvas.activeSelf == true) {
+                connectionCanvas.SetActive(false);
+            }
+            isConnected = true;
+        }
+    }
+
+    void ShowHideCanvas()
+    {
+        if (canvasGameobject.activeSelf == true) {
+            canvasGameobject.SetActive(false);
+        }
+        else {
+            canvasGameobject.transform.position = mainCamera.transform.position;
+            canvasGameobject.SetActive(true);
+        }
     }
 
     void OnEnable()
@@ -65,15 +99,6 @@ public class IHMManager : MonoBehaviour
         gridArray = new GameObject[gridWidth, gridHeight];
         EventManager.musicChange += UpdatePlaylistGrid;
         EventManager.musicSlider += UpdateMusicSlider;
-    }
-
-    public void OnEnterHoverCar()
-    {
-        carDemoCanvas.enabled = true;
-    }
-    public void OnExitHoverCar()
-    {
-        carDemoCanvas.enabled = false;
     }
 
     public void OnLoading()
@@ -322,33 +347,6 @@ public class IHMManager : MonoBehaviour
 
     public void OnCarButtonClick(Button button)
     {
-        /*
-        GameObject buttons = button.transform.GetChild(3).gameObject;
-
-        if (!selected)
-        {
-            button.transform.SetParent(newUIParent.transform);
-            secondCurvedCanvas.transform.DOLocalMoveZ(2.5f, 0.5f).SetEase(Ease.OutBack).OnComplete(() =>
-            {
-                selected = true;
-                buttons.SetActive(true);
-            });
-        }
-        else if (selected)
-        {
-            buttons.SetActive(false);
-            secondCurvedCanvas.transform.DOLocalMoveZ(curvedCanvas.transform.localPosition.z, 0.5f).SetEase(Ease.InBack).OnComplete(() =>
-            {
-                button.transform.SetParent(oldUIParent.transform);
-                secondCurvedCanvas.transform.localPosition = new Vector3(secondCurvedCanvas.transform.localPosition.x, secondCurvedCanvas.transform.localPosition.y, secondCurvedCanvas.transform.localPosition.z + 0.01f);
-                selected = false;
-                Button panel = button.transform.GetChild(5).GetComponent<Button>();
-                OnCarInfoButtonClick(panel);
-                Debug.Log(panel.name);
-            });
-        }
-        */
-        
         if (!selected)
         {
             selectedButton = button.gameObject;
@@ -356,20 +354,24 @@ public class IHMManager : MonoBehaviour
             GameObject newButton = Instantiate(carSelectButtonPrefab, button.transform.position, new Quaternion(0,0,0,0), cruvedCanvasBG.transform);
             ButtonStateController buttonStateController = newButton.GetComponent<ButtonStateController>();
             buttonStateController.SetupButton(button.gameObject);
-            secondCurvedCanvas.transform.DOLocalMoveZ(2.5f, 0.5f).SetEase(Ease.OutBack).OnComplete(() =>
+            backUI.transform.DOLocalMoveZ(0.01f, 0.5f).SetEase(Ease.OutBack);
+            secondCurvedCanvas.transform.DOLocalMoveZ(0.01f, 0.5f).SetEase(Ease.OutBack).OnComplete(() =>
             {
                 selected = true;
             });
         }
         else if (selected)
         {
+            backUI.transform.DOLocalMoveZ(curvedCanvas.transform.localPosition.z, 0.5f).SetEase(Ease.InBack);
             secondCurvedCanvas.transform.DOLocalMoveZ(curvedCanvas.transform.localPosition.z, 0.5f).SetEase(Ease.InBack).OnComplete(() =>
             {
-                secondCurvedCanvas.transform.localPosition = new Vector3(secondCurvedCanvas.transform.localPosition.x, secondCurvedCanvas.transform.localPosition.y, secondCurvedCanvas.transform.localPosition.z + 0.01f);
+                secondCurvedCanvas.transform.localPosition = new Vector3(secondCurvedCanvas.transform.localPosition.x, secondCurvedCanvas.transform.localPosition.y, secondCurvedCanvas.transform.localPosition.z - 0.01f);
                 selected = false;
                 Button panel = button.transform.GetChild(5).GetComponent<Button>();
                 OnCarInfoButtonClick(panel);
                 selectedButton.SetActive(true);
+                DOTween.Clear();
+                GameManager.instance.ResetCarRotation();
                 Destroy(button.gameObject);
             });
         }
@@ -395,7 +397,8 @@ public class IHMManager : MonoBehaviour
     {
         Button parentButton = button.transform.parent.parent.GetComponent<Button>();
         OnCarButtonClick(parentButton);
-        GameManager.instance.OnCarSelected();
+        TMP_Text carName = parentButton.transform.GetChild(2).GetChild(0).GetComponent<TMP_Text>();
+        GameManager.instance.OnCarSelected(carName.text);
     }
 
     public void OnCarInfoButtonClick(Button button)
@@ -418,25 +421,6 @@ public class IHMManager : MonoBehaviour
         {
             GameObject panel = button.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject;
             panel.transform.DOLocalMoveX(-30, 0.5f).SetEase(Ease.InBack);
-        }
-    }
-
-    public IEnumerator InternetConnectionAnim(bool connecting)
-    {
-        Image image = wifiImage.GetComponent<Image>();
-        while (connecting)
-        {
-            for (int i = 0; i < wifiSprites.Count; i++)
-            {
-                image.enabled = false;
-                image.sprite = wifiSprites[i];
-                image.enabled = true;
-                yield return new WaitForSeconds(0.5f);
-            }
-        }
-        if (!connecting)
-        {
-            //
         }
     }
 

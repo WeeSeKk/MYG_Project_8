@@ -3,7 +3,92 @@ guid: d57bdfc3de1fa524d8dced96e731345b
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: McLaren_650S_2015BadgeA_Material
+    second: {fileID: 2100000, guid: ac3327b80dc4a0c4eb0878fb3669b3f3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: McLaren_650S_2015Base_Material
+    second: {fileID: 2100000, guid: c80caba98c82f8c4cb2cbbc6cea48e2e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: McLaren_650S_2015CalliperGloss_Material
+    second: {fileID: 2100000, guid: d589d6c1d05cde041a296ed5a94d32de, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: McLaren_650S_2015Carbon1M_Material
+    second: {fileID: 2100000, guid: 4faaa8f48e8912b41a799a706d66faef, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: McLaren_650S_2015Coloured_Material
+    second: {fileID: 2100000, guid: 4d00a732cc7f92342a122e7106a215f3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: McLaren_650S_2015EngineA_Material
+    second: {fileID: 2100000, guid: 43e1efbffb55e0c4aa6788e7841e185b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: McLaren_650S_2015Grille1A_Material
+    second: {fileID: 2100000, guid: b32480cc233f0fc48b83a249190e2ff4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: McLaren_650S_2015Grille5A_Material
+    second: {fileID: 2100000, guid: cbeac116cb4bd3f46bb44c9a9ff3cc17, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: McLaren_650S_2015Grille6A_Material
+    second: {fileID: 2100000, guid: 9d1e83aeaa1713646bfac496a4da7028, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: McLaren_650S_2015InteriorA_Material
+    second: {fileID: 2100000, guid: bcd67e6106a3f894eaec969831ada1fe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: McLaren_650S_2015InteriorTillingA_Material
+    second: {fileID: 2100000, guid: 6bdcdd91c4a16ff458ee38de052ed621, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: McLaren_650S_2015LightA_Material
+    second: {fileID: 2100000, guid: 9da76b5fe21dd0f409ed45c320610671, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: McLaren_650S_2015ManufacturerPlateA_Material
+    second: {fileID: 2100000, guid: caeb5ece9ac10ee48ac6301221c820d6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: McLaren_650S_2015Paint_Material
+    second: {fileID: 2100000, guid: 5e2f091a167e18b41b5a22a4b7b54bde, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: McLaren_650S_2015SeatBelt_Material
+    second: {fileID: 2100000, guid: 194cf5c8322e0ee4d87a87a335c918ed, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: McLaren_650S_2015Window_Material
+    second: {fileID: 2100000, guid: 4b0e7789d1c963e44b297971f4ebcf60, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: McLaren_650S_2015_Wheel1A_3D_3DWheel1A_Material
+    second: {fileID: 2100000, guid: 32b845531b8d3824cb112fca8a7f4e61, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -9,6 +9,8 @@ public class EventManager : MonoBehaviour
     public static EventManager instance;
     public static event Action<string, bool> musicChange;
     public static event Action<float> musicSlider;
+    public static event Action<GameObject> changeSelectedCar;
+    public static event Action<string> connectionStatus;
 
     void Awake()
     {
@@ -30,5 +32,13 @@ public class EventManager : MonoBehaviour
     public static void MusicSlider(float musicTime)
     {
         musicSlider?.Invoke(musicTime);
+    }
+    public static void ChangeSelectedCar(GameObject car)
+    {
+        changeSelectedCar?.Invoke(car);
+    }
+    public static void ConnectionStatus(string connection)
+    {
+        connectionStatus?.Invoke(connection);
     }
 }
